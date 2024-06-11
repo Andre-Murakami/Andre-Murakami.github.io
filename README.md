@@ -5,5 +5,5 @@ Aluno: Andre Luiz de Souza Murakami - NºUSP 5631500
 
 - link da apresentação do trabalho no github: https://andre-murakami.github.io/
 
--Os arquivos avulso deste diretório raiz são os arquivos da pagina html de apresentação do trabalho
+- Os arquivos avulso deste diretório raiz são os arquivos da pagina html de apresentação do trabalho
   
