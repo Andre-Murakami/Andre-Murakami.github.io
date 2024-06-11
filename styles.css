@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color:  #fcb421;
+    border-bottom: 2px solid #ddd;
+}
+
+h2 {
+    margin-bottom: 10px; /* Adicionando espaço abaixo do elemento h2 */
+    margin-top: 10px; /* Adicionando espaço acima do elemento h2 */
+}
+
+h3 {
+    margin-top: 20px; /* Adicionando espaço acima do elemento h2 */
+}
+
+img {
+    margin-bottom: 30px; /* Adicionando espaço abaixo das imagens */
+}
+
+.left, .center, .right {
+    flex: 1;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.img-left {
+    height: 35%; /* Ajusta a altura da imagem para 50% da altura do header */
+    width: auto;
+    max-height: 110px; /* Define um limite máximo de altura para a imagem */
+    margin-left: 20px; 
+}
+
+.img-right {
+    height: 50%; /* Ajusta a altura da imagem para 30% da altura do header */
+    width: auto;
+    max-height: 300px; /* Define um limite máximo de altura para a imagem */
+    
+}
+
+h1, h2, h3, h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+main {
+    width:70%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #1094ab;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+footer a {
+    color: #fff;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 900px) {
+    main {
+        padding: 10px;
+    }
+}

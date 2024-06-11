@@ -1,0 +1,97 @@
+<!--
+5954024 Introdução ao Desenvolvimento Web
+Single-Page Dinâmica utilizando ferramentas HTML, CSS e JavaScript Vue
+Aluno: Andre Luiz de Souza Murakami - NºUSP 5631500
+-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single-Page - Mercearia Oriental Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="left">
+            <img src="img/usp_90anos_versao_ingles.png" alt="Imagem à esquerda" class="img-left">
+        </div>
+        <div class="center">
+            <img src="img/logousp.png" alt="logousp">
+            <h3>Faculdade de Filosofia, Ciências e Letras de Ribeirão Preto</h3>
+            <h3>Departamento de Computação e Matemática</h3>
+            <h4>5954024 Introdução ao Desenvolvimento Web</h4>
+            <p>Single-Page Dinâmica utilizando ferramentas HTML, CSS e JavaScript Vue</p>
+            <div class="student-info">
+                <h3>Aluno: Andre Luiz de Souza Murakami</h3>
+                <p>---</p>
+            </div>
+            <h1>Single-Page Mercearia Oriental Online</h1>
+        </div>
+        <div class="right">
+            <img src="img/logofilo.png" alt="Imagem à direita" class="img-right">
+        </div>
+    </header>    
+
+    <main>
+        <section>
+            <h2>1 Introdução</h2>
+            <p>A single-page dinâmica construída consiste em uma página desenvolvida com HTML, CSS, JavaScript e Vue.js. Consiste em uma aplicação de uma loja virtual especializada em produtos orientais, permitindo aos usuários explorar produtos, adicionar itens ao carrinho e se inscrever na newsletter. Este documento detalha os principais aspectos da página, suas funcionalidades e o funcionamento interno do código.</p>
+        </section>
+        <section>
+            <h2>2 Estrutura da Página (HTML)</h2>
+            <p>O arquivo `home.html` define a estrutura básica da página, utilizando as seguintes seções:</p>
+            <h3>2.1 Cabeçalho (Header)</h3>
+            <p>No cabeçalho (header) da página, à esquerda, o logotipo da loja reforça a identidade visual, enquanto a barra de navegação inclui links para categorias de produtos como "Home", "Tofu", "Doces" e "Sobre Nós", com o link da página atual destacado em negrito.</p>
+            <img src="img/teste.png" alt="2.1">
+            <h3>2.2 Seção de Filtros</h3>
+            <p>A seção de filtros é projetada para ajudar os usuários a encontrar produtos específicos de maneira eficiente. Localizada logo abaixo do cabeçalho, essa seção permite que os usuários filtrem os produtos exibidos de acordo com suas preferências.</p>
+            <p>A seção de filtros inclui um campo de pesquisa e um menu suspenso de categorias. O campo de pesquisa permite que os usuários digitem palavras-chave para localizar produtos específicos. Por exemplo, ao digitar "tofu", apenas os produtos relacionados ao tofu serão exibidos.</p>
+            <p>O menu suspenso de categorias oferece uma seleção de opções, como "Molhos", "Massas", etc. Isso permite que os usuários filtrem os produtos com base na categoria desejada. Se um usuário selecionar "Molhos", apenas os produtos desta categoria serão mostrados.</p>
+            <img src="img/testeb.png" alt="2.2">
+            <h3>2.3 Conteúdo Principal (Main)</h3>
+            <p>O conteúdo principal (main) é onde os produtos são exibidos, proporcionando aos usuários uma visão clara e organizada dos itens disponíveis para compra. Esta seção é dividida em duas partes principais: "Produtos em Destaque" e "Ofertas".</p>
+            <p>A seção "Produtos em Destaque" apresenta uma seleção de itens destacados pela loja. Cada produto é exibido em um cartão individual que inclui uma imagem, o nome, a descrição, o preço e um botão "Comprar". Isso permite que os usuários visualizem facilmente os detalhes importantes e adicionem os produtos ao carrinho com um clique.</p>
+            <p>A seção "Ofertas" é dedicada a produtos com preços promocionais. Assim como na seção de produtos em destaque, cada item em oferta é exibido em um cartão que inclui todos os detalhes necessários para que os usuários possam fazer uma compra informada. Isso facilita a identificação de boas oportunidades de compra.</p>
+            <img src="img/testec.png" alt="2.3">
+            <h3>2.4 Rodapé (Footer)</h3>
+            <p>O rodapé (footer) da página é uma seção que oferece informações adicionais e opções de navegação aos usuários. Esta seção está dividida em várias partes, cada uma atendendo a uma necessidade específica dos visitantes.</p>
+            <p>Primeiramente, a seção de newsletter convida os usuários a se inscreverem para receber atualizações e promoções. Esta parte do rodapé permite que os usuários insiram seu nome e e-mail para inscrição. Uma notificação de sucesso ou não é enviada ao apertar o botão de envio.</p>
+            <img src="img/tested.png" alt="2.4">
+            <h2>3 Funcionalidades e Interatividade (Vue.js)</h2>
+            <p>O arquivo `app.js` utiliza o framework Vue.js para tornar a página interativa e dinâmica:</p>
+            <h3>3.1 Gerenciamento de Estado</h3>
+            <p>O gerenciamento de estado é realizado de maneira a garantir uma experiência de usuário fluida e interativa.</p>
+            <p>A aplicação utiliza o Vue.js para controlar e gerenciar o estado dos dados exibidos na interface do usuário. O objeto data no componente Vue armazena todas as informações necessárias, como produtos, ofertas, itens no carrinho, categorias selecionadas e detalhes da newsletter. Esses dados são vinculados à interface do usuário usando a sintaxe de template do Vue, permitindo que qualquer mudança no estado dos dados seja automaticamente refletida na interface.</p>
+            <h3>3.2 Manipulação do Carrinho de Compras</h3>
+            <p>Outra aplicação é no carrinho de compras. Quando um produto é adicionado ao carrinho, a função `addToCart(product)` é chamada, que adiciona o produto ao array `cart`. Esse array é então salvo no `localStorage` para que as informações do carrinho sejam persistidas mesmo se o usuário recarregar a página ou fechar o navegador.</p>
+            <p>A manipulação do carrinho é gerenciada de forma dinâmica com Vue.js. Quando um usuário adiciona um produto ao carrinho, o item é inserido no array `cart`. Esse array é então salvo no `localStorage`, o que garante que o carrinho permaneça intacto mesmo quando o usuário atualiza a página ou volta ao site mais tarde.</p>
+            <p>Da mesma forma, quando um usuário remove um item do carrinho, ele é removido do array `cart` e o carrinho é atualizado tanto na interface quanto no `localStorage`. Isso proporciona uma experiência de usuário mais consistente e evita que o usuário perca o progresso de sua compra.</p>
+            <p>Visualmente, o carrinho exibe o número total de itens atualmente no carrinho, juntamente com uma lista detalhada dos produtos, incluindo seus nomes, preços e uma opção para removê-los individualmente. Além disso, o valor total do carrinho é calculado dinamicamente com base nos preços dos produtos.</p>
+            <img src="img/tea.png" alt="3.2">
+            <h3>3.3 Filtros Dinâmicos de Produtos</h3>
+            <p>O filtro usa Vue.js para exibir dinamicamente os produtos conforme o usuário interage com os filtros. Quando o usuário digita na caixa de pesquisa ou seleciona uma categoria, o Vue.js reage a essas mudanças e atualiza a lista de produtos exibidos na página em tempo real, sem a necessidade de recarregar a página. Isso proporciona que os usuários encontrem facilmente os produtos desejados.</p>
+            <img src="img/teb.png" alt="3.3">
+            <h3>3.4 Validação de Formulários</h3>
+            <p>Essa funcionalidade é implementada com Vue.js para validar os campos do formulário. Após o cadastro, uma mensagem de agradecimento é exibida ao usuário.</p>
+            <img src="img/tec.png" alt="3.4">
+            <h3>3.5 Recuperação do Estado do Carrinho</h3>
+            <p>O método `mounted` é utilizado para carregar o estado atual do carrinho do `localStorage` assim que a aplicação é iniciada. Isso garante que os produtos previamente adicionados ao carrinho sejam recuperados e exibidos corretamente na interface do usuário, mantendo a consistência entre as sessões de navegação.</p>
+            <img src="img/ted.png" alt="3.5">
+            <h2>4 CSS (Cascading Style Sheets)</h2>
+            <p>O CSS (Cascading Style Sheets) desempenha um papel no design de uma página web, pois controla a apresentação visual dos elementos HTML. Ele permite definir estilos como cores, fontes, espaçamento, layout e muito mais, garantindo uma experiência visualmente atraente e consistente para os usuários.</p>
+            <img src="img/quatro.png" alt="4">
+        </section>
+    </main>
+    <footer>
+        <h2>Referências:</h2>
+        <ul>
+            <li>RUIZ, Evandro Eduardo Seron. "Vue, um framework JS." In: Webdev. Disponível em: <a href="https://sites.google.com/usp.br/webdev">https://sites.google.com/usp.br/webdev</a>. Acesso em: 07 jun. 2024.</li>
+            <li>Programação Web. "Curso de HTML Completo: Aula 01 - Criando novo projeto.". Disponível em: <a href="https://www.youtube.com/watch?v=sj0p9O85AIg&list=PL2Fdisxwzt_cajoGVWTx44wM6Ht09QJ3A">https://www.youtube.com/watch?v=sj0p9O85AIg&list=PL2Fdisxwzt_cajoGVWTx44wM6Ht09QJ3A</a>. Acesso em: 04 jun. 2024.</li>
+            <li>Curso em Vídeo. "Começa aqui o novo Curso em Vídeo de HTML5 e CSS3." Disponível em: <a href="https://www.youtube.com/watch?v=Ejkb_YpuHWs&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n">https://www.youtube.com/watch?v=Ejkb_YpuHWs&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n</a>. Acesso em: 05 jun. 2024.</li>
+        </ul>
+    </footer>
+</body>
+</html>
