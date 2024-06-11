@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINMATSU - Mercearia Oriental Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <nav>
+                <logo>
+                    <img src="images/logo_kinmatsu1_png.png" alt="logo" style="display: inline-block; vertical-align: middle;">
+                    <div class="logo" style="display: inline-block; vertical-align: middle;">KINMATSU</div>
+
+                </logo>
+            </nav>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" style="color:#FFE4E1">Home</a></li>
+                    <li><a href="tofu.html">Tofu</a></li>
+                    <li><a href="#">Massas</a></li>
+                    <li><a href="#">Doces</a></li>
+                    <li><a href="#">Sakes</a></li>
+                    <li><a href="#">Bebidas</a></li>
+                    <li><a href="#">Kits de Sushi</a></li>
+                    <li><a href="#">Utensílios</a></li>
+                    <li><a href="#">Sobre Nós</a></li>
+                </ul>
+            </nav>
+            <div class="cart">
+                <span>Carrinho ({{ cart.length }})</span>
+                <div class="cart-items" v-if="cart.length > 0">
+                    <div class="cart-item" v-for="(item, index) in cart" :key="item.id">
+                        <p>{{ item.name }} - {{ item.price }}</p>
+                        <button @click="removeFromCart(index)">Remover</button>
+                    </div>
+                    <p style="font-size: 20px;">Total: R$ {{ cartTotal }}</p>
+                </div>
+            </div>
+                   
+        </header>
+
+        <section>
+            <div class="filters">
+                <input type="text" v-model="search" placeholder="Pesquisar">
+                <select v-model="selectedCategory">
+                    <option value="">Todas as Categorias</option>
+                    <option v-for="category in categories" :key="category">{{ category }}</option>
+                </select>
+            </div>
+        </section>
+        
+        <main>
+
+            <section class="featured-products">
+                <!-- Produtos em destaque -->
+                <h2>Produtos em Destaque</h2>
+                <div class="products">
+                    <!-- Lista de produtos em destaque -->
+                    <div class="product" v-for="product in filteredProducts" :key="product.id">
+                        <img :src="product.image" :alt="product.name">
+                        <h3>{{ product.name }}</h3>
+                        <p>{{ product.description }}</p>
+                        <p class="price">{{ product.price }}</p>
+                        <button @click="addToCart(product)">Comprar</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="ofertas-section">
+                <h2>Ofertas</h2>
+                <div class="ofertas-div">
+                    <div class="oferta"  v-for="oferta in filteredOfertas" :key="oferta.id">
+                        <img :src="oferta.image" :alt="oferta.name">
+                        <h3>{{ oferta.name }}</h3>
+                        <p>{{ oferta.description }}</p>
+                        <p class="price">{{ oferta.price }}</p>
+                        <button @click="addToCart(oferta)">Comprar</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <div class="newsletter">
+                <h2>CADASTRE-SE EM NOSSA NEWSLETTER</h2>
+                <p>e receba novidades e promoções</p>
+                <div class="newsletter-form">
+                    <input type="text" placeholder="Seu nome" v-model="newsletterName">
+                    <input type="email" placeholder="Seu e-mail" v-model="newsletterEmail">
+                    <button @click="subscribeNewsletter">CADASTRE-SE</button>
+                </div>
+            </div>
+            <div class="footer-content">
+                <div class="footer-section logo-section">
+                    <img src="images/logo3.jpg" alt="Logo kinmatsu4">
+                    <p>Mercado focado na gastronomia oriental, aqui você encontra os melhores produtos importados para a sua culinária. Oferecemos uma ampla variedade de produtos, temperos, especiarias e utensílios culinários. Nos siga em nossas redes sociais.</p>
+                    <div class="social-icons">
+                        <a href="#"><img src="images/facebook-icon.jpg" alt="Facebook"></a>
+                        <a href="#"><img src="images/instagram-icon.jpg" alt="Instagram"></a>
+                    </div>
+                </div>
+                <div class="footer-section institucional">
+                    <h3>INSTITUCIONAL</h3>
+                    <ul>
+                        <li><a href="#">Nossa Empresa</a></li>
+                        <li><a href="#">Políticas de Frete</a></li>
+                        <li><a href="#">Formas de Pagamento</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Depoimentos de Clientes</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section atendimento">
+                    <h3>ATENDIMENTO</h3>
+                    <ul>
+                        <li><a href="#"><img src="images/whatsapp-icon.jpg" alt="WhatsApp"> Fale no WhatsApp</a></li>
+                        <li><a href="tel:+5516981403712">SAC (16) 98140-3712</a></li>
+                        <li><a href="mailto:atendimento@casabueno.com.br">atendimento@kinmatsu.br</a></li>
+                        <li><a href="#">Rua Dom Luis do Amaral Mousinho, 532 - Pq Bandeirantes, Ribeirão Preto - SP, 14090-470.</a></li>
+                    </ul>
+                    <p>Atendimento de segunda a sábado das 8h30 às 19h, exceto feriados.</p>
+                </div>
+                <div class="footer-section pagamentos">
+                    <h3>FORMAS DE PAGAMENTO</h3>
+                    <img src="images/formas-pagamento.jpg" alt="Formas de Pagamento">
+                    <h3>SELOS DE SEGURANÇA</h3>
+                    <img src="images/selos-seguranca.jpg" alt="Selos de Segurança">
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>KINMATSU ®️</p>
+                <p>Desenvolvido por Murakami</p>
+            </div>
+        </footer>
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>
